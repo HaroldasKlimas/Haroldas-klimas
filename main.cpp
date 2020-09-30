@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -6,34 +7,34 @@ class Shape
 {
 public:
  // pure virtual function providing interface framework.
- virtual int getArea() = 0;
- void setWidth(int w)
+ virtual float getArea() = 0;
+ void setPIE(float PI)
  {
- width = w;
+ pi = PI;
  }
- void setHeight(int h)
+ void setRADIUS(float rad)
  {
- height = h;
+ radius = rad;
  }
 protected:
- int width;
- int height;
+ float pi;
+ float radius;
 };
-class Triangle: public Shape
+class Circle: public Shape
 {
 public:
- int getArea()
+ float getArea()
  {
- return (width * height)/2;
+ return pow(pi*radius,2);
  }
 };
 int main(void)
 {
- Triangle Tri;
+ Circle Cir;
 
- Tri.setWidth(5);
- Tri.setHeight(7);
+ Cir.setPIE(3.1415926);
+ Cir.setRADIUS(10);
  // Print the area of the object.
- cout << "Total Triangle area: " << Tri.getArea() << endl;
+ cout << "Total Circle area: " << Cir.getArea() << endl;
  return 0;
 }
